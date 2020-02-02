@@ -10,6 +10,7 @@ if not os.path.exists(directory):
     os.mkdir(directory)
 
 start_time = time.time()
+image = 0
 
 def on_new_camera_image(evt, **kwargs):
 	start = time.time()
@@ -22,9 +23,11 @@ def on_new_camera_image(evt, **kwargs):
 	start_time = start
 	pilImage = kwargs['image'].raw_image
 	
-	print( "took photo" )
+	global image
 	global directory
-	pilImage.save( directory + "/cozmo-%d.jpg" % kwargs['image'].image_number, "JPEG")
+	image = image + 1
+	print( "took photo " + str(image) )
+	pilImage.save( directory + "/cozmo-%d.jpg" % image, "JPEG")
 
 def cozmo_program(robot: cozmo.robot.Robot):
 	robot.set_head_angle(degrees(10.0)).wait_for_completed()
