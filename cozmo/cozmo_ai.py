@@ -16,7 +16,7 @@ import numpy as np
 np.set_printoptions(suppress=True)
 
 # Load the model
-model = tf.keras.models.load_model("C:/dev/cozmo_sdk/codingclub/thumbsup/keras_model.h5", compile=False )
+model = tf.keras.models.load_model("C:/codingclub/cozmo/model/keras_model.h5", compile=False )
 
 start_time = time.time()
 prediction = []
