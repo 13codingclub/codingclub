@@ -73,9 +73,13 @@ def cozmo_program(robot: cozmo.robot.Robot):
 		global prediction
 		if ( len( prediction ) > 0 ) :
 			if ( prediction[0][1] > 0.90 ):
-				robot.say_text("Thumbs up").wait_for_completed()
-				# Reset the prediction variable so we dont do the same thing again.
-				prediction = {}
+				robot.say_text("uno reverse card").wait_for_completed()
+			else:
+				robot.say_text("no u").wait_for_completed()
+				
+				
+			# Reset the prediction variable so we dont do the same thing again.
+			prediction = {}
 
 cozmo.run_program(cozmo_program, use_viewer=True, force_viewer_on_top=True)
 
